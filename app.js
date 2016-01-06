@@ -1,4 +1,4 @@
-var express = require("express"),
+let express = require("express"),
 	bodyParser = require('body-parser'),
 	logger = require('morgan'),
 	modules = require('./modules'),
@@ -13,6 +13,6 @@ require('./settings/db');
 
 app.use('/api', require('./routes'));
 
-app.listen(env.port, function (){
+app.listen(env.port, () => {
 	console.log('Start listen on port ' + env.port);
 });

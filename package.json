@@ -2,13 +2,16 @@
   "name": "directory-manager",
   "version": "0.0.0",
   "private": true,
-  "main": "app.js",
+  "main": "bootstrap.js",
   "dependencies": {
+    "async": "~1.5.0",
     "body-parser": "~1.14.2",
+    "es6-module-loader": "~0.17.10",
     "express": "~4.13.3",
     "mongoose": "~4.3.4",
     "morgan": "~1.6.1",
-    "async": "~1.5.0",
-    "recursive-readdir": "~1.3.0"
+    "recursive-readdir": "~1.3.0",
+    "traceur": "0.0.96",
+    "traceur-source-maps": "~1.0.6"
   }
 }

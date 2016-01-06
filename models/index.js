@@ -1,3 +1,3 @@
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 
 mongoose.model('File', require('./schema/file'));

@@ -1,4 +1,4 @@
-var FileModel = require('mongoose').model('File'),
+let FileModel = require('mongoose').model('File'),
 	recursive = require('recursive-readdir'),
 	fs = require('fs'),
 	async = require('async'),
@@ -6,24 +6,22 @@ var FileModel = require('mongoose').model('File'),
 
 module.exports = function(req, res){
 	console.time('process');
-	recursive('d:/ЖДТУ', function (err, files) {
+	recursive('d:/ЖДТУ', (err, files = []) => {
 		console.timeEnd('process');
 		console.time('db');
-		async.each(files, function(filePath, cb){
-			var basename = path.basename(filePath),
+		async.each(files, (filePath, cb) => {
+			const basename = path.basename(filePath),
 				extname = path.extname(filePath),
 				name = path.basename(basename, extname);
-			fs.stat(filePath, function(err, data){
+			fs.stat(filePath, (err, data = {}) => {
 				new FileModel({
-					name: name,
-					basename: basename,
-					extname: extname,
+					name,
+					basename,
+					extname,
 					stats: data
-				}).save(function(){
-						cb()
-					});
+				}).save(() => {cb()});
 			})
-		}, function(){
+		}, () => {
 			console.timeEnd('db');
 			console.log('done');
 		});
