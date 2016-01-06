@@ -1,0 +1,10 @@
+{
+	"env": {
+		"port": 3100,
+		"db": {
+			"database": "directory-manager",
+			"host": "127.0.0.1",
+			"debug": false
+		}
+	}
+}
